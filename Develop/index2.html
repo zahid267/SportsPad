@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team stats</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css"/>
+</head>
+<body>
+    <div class="flex-row align-start align-stretch-md align-content-start align-content-stretch-md min-100-vh bg-primary">
+        <div class="col-12 col-md-3 bg-light p-3">
+            <form id="search-form" class="mb-2">
+                <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
+                <select id="format-input" class="form-input w-100">
+                    <option value="strStadium">State Farm Arena</option>
+                    <option value="strStadiumLocation">Atlanta, Geogia</option>
+                    <option value="strStadiumThumb">
+                        https://www.thesportsdb.com/images/media/team/stadium/qxstqs1420567922.jpg</option>
+                    <option value="strTeamBadge">https://www.thesportsdb.com/images/media/team/badge/c6oi9p1611859646.png
+                    </option>
+                    <option value="strTeamBanner">https://www.thesportsdb.com/images/media/team/banner/xuxtyv1420740260.jpg
+                    </option>
+                    <option value="strTeamLogo">https://www.thesportsdb.com/images/media/team/logo/3lyn5b1503742089.png
+                    </option>
+                    <option value="strTeamShort">ATL</option>
+                    <option value="strTwitter">twitter.com/atlhawks</option>
+                    <option value="strWebsite">www.nba.com/hawks</option>
+                    <option value="strYoutube">www.youtube.com/user/OfficialAtlantaHawks</option>
+                </select>
+                <button class="btn btn-info btn-block">Search</button>
+            </form>
+    
+            <a href="./index.html"> </a>
+        </div>
+    
+        <div class="col-12 col-md-9 p-3 text-light">
+            <h2>Showing results for team selection <span id="result-text"></span></h2>
+            <div id="result-content"></div>
+        </div>
+    </div>
+</body>
+</html>

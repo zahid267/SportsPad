@@ -1,3 +1,18 @@
+// fetch("https://free-nba.p.rapidapi.com/stats?page=0&per_page=25", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-key": "36cdf6872fmsh4c920891e55aecdp1d76fdjsn61241435d1ec",
+// 		"x-rapidapi-host": "free-nba.p.rapidapi.com"
+// 	}
+// })
+// .then(response => {
+// 	console.log(response);
+// })
+// .catch(err => {
+// 	console.error(err);
+// });
+
+
 var teamsContainerEl = document.querySelector('#nbaTeams-container');
 var teamSearchTerm = document.querySelector('#nbaTeams-search-term');
 
@@ -32,6 +47,7 @@ function getTeams() {
 }
 
 getTeams();
+
 
 
 // fetch('https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4387')
