@@ -2,6 +2,8 @@ const myListContainer = document.querySelector('.list-group');
 var teamsContainerEl = document.querySelector('#nbaTeams-container');
 var teamSearchTerm = document.querySelector('#nbaTeams-search-term');
 var userInput = document.querySelector('#userInput');
+var teamListEl = $('#team_list');
+var teamNameEl = "";
 let teamDB = [];
 
 function getTeams() {
@@ -24,18 +26,22 @@ function showTeams() {
 
         // console.log(teamDB.teams[i].strTeam);
         var teamName = (teamDB.teams[i].strTeam);
+        var teamid = teamDB.teams[i].idTeam;
+        
 
-        //teams[0].strTeam teams[0].strTeam
-
-        var nbaTeamEl = document.createElement('div');
+       // var nbaTeamEl = document.createElement('div');
         // nbaTeamEl.setAttribute('class', '')
         // nbaTeamEl.classList = 'list-item flex-row justify-space-between align-center';
 
-        var titleEl = document.createElement('span');
-        titleEl.textContent = teamName;
-
-        nbaTeamEl.append(titleEl);
-        myListContainer.append(nbaTeamEl);
+        //var titleEl = document.createElement('span');
+      //  titleEl.textContent = teamName;
+        teamNameEl = $('<li>');
+        teamNameEl.attr("data-index", i);
+        teamNameEl.attr("data-id", teamid);
+       // console.log(teamNameEl)
+        teamNameEl.text(teamName);
+      //  nbaTeamEl.append(titleEl);
+        teamListEl.append(teamNameEl);
 
     }
 }
@@ -49,6 +55,15 @@ function searchTeams() {
   // team name is db.strTeam (?)
 }
 
+teamListEl.on('click', function(event){
+  event.preventDefault();
+  var teamIndex = event.target.dataset.index;
+  var teamId = event.target.dataset.id;
+  //console.log(teamIndex + " --- " + teamId);
+  var queryString = './team.html?q=' + teamIndex+"&teamid="+teamId;         //searchInputVal + '&format=' + formatInputVal;
 
+  location.assign(queryString);
+  /// Call the teamStats function next
+})
 getTeams();
 
