@@ -2,9 +2,9 @@
 var teamListEl = $('#team_list');
 var teamContEl = $('.container');
 var teamNameEl = "";
-let teamDB = [];
-
-function getTeams() {
+let teamDB = [];    var eventDB = [];
+var teamId = "";
+function getTeams() {   /// Not used on this page
     var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4387';
 
     fetch(requestUrl)
@@ -21,40 +21,62 @@ function getTeams() {
 }
 function getParams() {
     // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
-    var searchParamsArr = document.location.search.split('&');
+  //  var searchParamsArr = document.location.search.split('&');
   
     // Get the team index and teamid values
-    var teamIndex = searchParamsArr[0].split('=').pop();
-    var teamId = searchParamsArr[1].split('=').pop();
-  
-    dispTeam(teamIndex, teamId);
+    //var teamIndex = searchParamsArr[0].split('=').pop();
+    //var teamId = searchParamsArr[1].split('=').pop();
+    var teamRec = sessionStorage.getItem("teamRecord");
+   // console.log(teamRec)
+    teamDB = JSON.parse(teamRec);
+    //console.log("after parse : "+ teamDB);
+
+    teamId = teamDB.idTeam;     /// teanDB is individual team record (object)
+    dispTeam();
+    getTeamDet(teamId);
   }
-
-function dispTeam(j,id) {
-    
-    var trec = teamDB.teams[j]; /// Individual team record
-
+function getTeamDet(teamId){
+    var reqUrl = "https://www.thesportsdb.com/api/v1/json/1/eventslast.php?id="+teamId;
+    fetch(reqUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+           // console.log("teamDet: ", data);
+            eventDB = data.results;
+            dispTeamEvents(eventDB);
+        });
+}
+function dispTeam() {
+    teamId = teamDB.idTeam;
+    var trec = teamDB; /// Individual team record
+        var httPrefix = "https://";
          console.log(trec);
          /*strWebsite: "www.nba.com/nets" */
          //var logoEl =
           $('#logo').attr('src',trec.strTeamLogo)
-         var brandLogoEl = $('.brand-logo').attr('href', trec.strWebsite).text(trec.strTeam);
+         //var brandLogoEl = 
+         $('.brand-logo').attr('href', httPrefix+trec.strWebsite).text(trec.strTeam);
         // var brandLogoEl = $('.brand-logo').attr('href', trec.strWebsite).append(logoEl);
          
          //brandLogoEl.append(logoEl);
-
+         
          var navMobileEl = $('#nav-mobile')
-         var aEl = $('<a>').attr('href',trec.strFacebook).text("Facebook")
+         var aEl = $('<a>').attr('href',httPrefix+trec.strFacebook).text("Facebook")
+         aEl.attr('target', '_blank');
          var liEl = $('<li>').append(aEl);
          navMobileEl.append(liEl);
 
-         aEl = $('<a>').attr('href',trec.strInstagram).text("Instagram")
+         aEl = $('<a>').attr('href',httPrefix+trec.strInstagram).text("Instagram")
+         aEl.attr('target', '_blank');
          liEl = $('<li>').append(aEl);
          navMobileEl.append(liEl);
-         aEl = $('<a>').attr('href',trec.strTwitter).text("Twitter")
+         aEl = $('<a>').attr('href',httPrefix+trec.strTwitter).text("Twitter")
+         aEl.attr('target', '_blank');
          liEl = $('<li>').append(aEl);
          navMobileEl.append(liEl);
-         aEl = $('<a>').attr('href',trec.strYoutube).text("Youtube")
+         aEl = $('<a>').attr('href',httPrefix+trec.strYoutube).text("Youtube")
+         aEl.attr('target', '_blank');
          liEl = $('<li>').append(aEl);
          navMobileEl.append(liEl);
 
@@ -84,35 +106,28 @@ function dispTeam(j,id) {
        // teamContEl.append(stadiumEl, stadiumLocEl, stadiumDesc);
         //var stadiumThumbEl = 
         $('#stadium_thumb').attr('src', trec.strStadiumThumb)
-        //teamContEl.append(stadiumThumbEl);
-
-       /*
-       
-      //  nbaTeamEl.append(titleEl);
-        teamListEl.append(teamNameEl);
-*/
     
 }
+function dispTeamEvents(eventDB){
+    var erec;   var tbodyEl = $('#events');
+    var trEl;   var tdEl;
+    for(var i=0; i<eventDB.length; i++){
+        erec = eventDB[i];
+        tdEl = $('<td>').text(erec.dateEvent);
+        trEl = $('<tr>').append(tdEl);
+        tdEl = $('<td>').text(erec.strSeason);
+        trEl.append(tdEl);
+        tdEl = $('<td>').text(erec.strEvent);
+        trEl.append(tdEl);
+        tdEl = $('<td>').text(erec.intHomeScore);
+        trEl.append(tdEl);
+        tdEl = $('<td>').text(erec.intAwayScore);
+        trEl.append(tdEl);
+       // tdEl = $('<td>').text(erec.strEventAlternate);
+        //trEl.append(tdEl);
+        tbodyEl.append(trEl);
+    }
+}
+//getTeams();       /// Do't to get whole record here. Individual team record is stored in sessionStorage on the index.html page
+getParams();
 
-getTeams();
-/*
-
-
-
-strGender: "Male"
-
-strLocked: "unlocked"
-strManager: ""
-strRSS: "http://www.nba.com/nets/rss.xml"
-strSport: "Basketball"
-
-
-strTeamFanart1: "https://www.thesportsdb.com/images/media/team/fanart/xvqqsr1420587418.jpg"
-strTeamFanart2: "https://www.thesportsdb.com/images/media/team/fanart/uywuts1420587649.jpg"
-strTeamFanart3: "https://www.thesportsdb.com/images/media/team/fanart/qvtsur1420587779.jpg"
-strTeamFanart4: "https://www.thesportsdb.com/images/media/team/fanart/vwrrup1421415402.jpg"
-
-strTeamShort: "BKN"
-
-
-*/
