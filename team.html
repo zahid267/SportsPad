@@ -30,42 +30,64 @@
           <h5 id="since"></5>   
         </div>
       </header>
-
+<input type="button" value="Return Home" onclick="document.location.href='index.html';" style="float: left;">
         <div class="container">
+          <div class="row">
+
+              <table class="striped">
+                <caption><h4>The latest events</h4></caption>
+                  <thead>
+                    <tr>
+                      <th>Date</th>  
+                      <th>Season</th>
+                      <th>Event</th>
+                      <th>Home Score</th>
+                      <th>Away Score</th>
+                      <!--<th>Description</th>-->
+                    </tr>
+                  </thead>
+                  <tbody id="events">
+                     
+                  </tbody>
+              </table>
+            </div>
             <div class="row">
-              <div class="col s12 m8 l8">
-                <h1>About us</h1>
+              <div class="col s12 m12 l12">
+                <img id="banner" class="responsive-img" width="100%" />
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m9 l9">
+                <h2>About us</h2>
                 <p id="team_desc" class="flow-text"></p>
               </div>
-              <div class="col s12 m4 l4">
-                <img id="badge" />
-                <img id="banner" />
-                <img id="jersey" />
+              <div class="col s12 m3 l3">
+                <img id="badge" class="responsive-img" />
+                <img id="jersey" class="responsive-img" />
               </div>
-
             </div>
            
           <div class="row">
             <div class="col s12 m12 l12">
-              <h1>Stadium</h1>
+              <h2>Stadium</h2>
               <div class="containered">
                 <img id="stadium_thumb" class="responsive-img" width="100%">
                 <div class="centered">
-                  <br><br><br><br><br>
                   <h2 id="team_stadium"></h2>
-                  <h4 id="stadium_loc"></h4>
+                  <h3 id="stadium_loc"></h3>
                 </div>
               </div>
+            </div>
+          </div>  
+          <div class="row">
+            <div class="col s12 m12 l12">
               <p id="stadium_desc" class="flow-text"></p>
             </div>
-           <!--<div class="col s12 m6 l6">
-              <img id="stadium_thumb" class="responsive-img">
-            </div>-->
-          </div>  
+          </div>
 
             
            
-            <img class="responsive-img circle">
+            <!--<img class="responsive-img circle">-->
 
         </div>
         <script src="./Develop/team.js"></script>
