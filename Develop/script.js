@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-const myListContainer = document.querySelector('.list-group');
-=======
->>>>>>> ac3e407ba3066e5e9e9bd727fa49fbd9a6a10e37
 var teamsContainerEl = document.querySelector('#nbaTeams-container');
 var teamSearchTerm = document.querySelector('#nbaTeams-search-term');
 var userInput = document.querySelector('#nbaTeam');
