@@ -100,11 +100,11 @@ teamListEl.on('click', function(event){
 >>>>>>> 0cebc854bf01233c6e50d513ab55fc7dfcac6db7
 =======
 // Autocomplete widget
-/*
+
 function setAutoComplete(){
   $(function () {
     teamNames = teamList;*/
-    /*[
+    [
       'Bootstrap',
       'C',
       'C++',
@@ -124,11 +124,11 @@ function setAutoComplete(){
       'React',
       'Ruby',
     ];*/
-  /*  $('#nbaTeam').autocomplete({
+   $('#nbaTeam').autocomplete({
       source: teamNames,
     });
   });
-}*/
+}
 
 getTeams();
 >>>>>>> 249f8375308628ae6d0db22848499f227af02e1e
