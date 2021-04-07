@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 const myListContainer = document.querySelector('.list-group');
+=======
+>>>>>>> ac3e407ba3066e5e9e9bd727fa49fbd9a6a10e37
 var teamsContainerEl = document.querySelector('#nbaTeams-container');
 var teamSearchTerm = document.querySelector('#nbaTeams-search-term');
 var userInput = document.querySelector('#nbaTeam');
@@ -81,6 +84,7 @@ teamListEl.on('click', function(event){
   var teamRec = JSON.stringify(teamRecord);
   //console.log(teamRec);
 
+<<<<<<< HEAD
   sessionStorage.setItem("teamRecord", teamRec);
 
   var queryString = './team.html';      ///?q=' + teamIndex+"&teamid="+teamId;         //searchInputVal + '&format=' + formatInputVal;
@@ -132,3 +136,6 @@ function setAutoComplete(){
 
 getTeams();
 >>>>>>> 249f8375308628ae6d0db22848499f227af02e1e
+=======
+getTeams();
+>>>>>>> ac3e407ba3066e5e9e9bd727fa49fbd9a6a10e37
