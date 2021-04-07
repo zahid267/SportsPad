@@ -48,6 +48,7 @@ function showTeams() {
 
     }
     teamNames = teamList;
+    setAutoComplete(teamList)
 }
 
 function searchTeams() {
@@ -90,34 +91,14 @@ teamListEl.on('click', function(event){
 })
 
 // Autocomplete widget
-/*
-function setAutoComplete(){
-  $(function () {
-    teamNames = teamList;*/
-    /*[
-      'Bootstrap',
-      'C',
-      'C++',
-      'CSS',
-      'Express.js',
-      'Git',
-      'HTML',
-      'Java',
-      'JavaScript',
-      'jQuery',
-      'JSON',
-      'MySQL',
-      'Node.js',
-      'NoSQL',
-      'PHP',
-      'Python',
-      'React',
-      'Ruby',
-    ];*/
-  /*  $('#nbaTeam').autocomplete({
-      source: teamNames,
+function setAutoComplete(teamListNames){
+  //$(function () {
+   // teamNames = teamList;
+    
+    $('#nbaTeam').autocomplete({
+      source: teamListNames,
     });
-  });
-}*/
+  //});
+}
 
 getTeams();
