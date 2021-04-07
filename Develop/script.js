@@ -131,7 +131,3 @@ function setAutoComplete(){
 }
 
 getTeams();
->>>>>>> 249f8375308628ae6d0db22848499f227af02e1e
-=======
-getTeams();
->>>>>>> ac3e407ba3066e5e9e9bd727fa49fbd9a6a10e37
