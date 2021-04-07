@@ -80,7 +80,7 @@ teamListEl.on('click', function(event){
   var teamRec = JSON.stringify(teamRecord);
   //console.log(teamRec);
 
-<<<<<<< HEAD
+
   sessionStorage.setItem("teamRecord", teamRec);
 
   var queryString = './team.html';      ///?q=' + teamIndex+"&teamid="+teamId;         //searchInputVal + '&format=' + formatInputVal;
@@ -89,41 +89,16 @@ teamListEl.on('click', function(event){
   /// Call the teamStats function next
 })
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 // fetch('https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4387')
 //   .then(response => response.json())
 //   //.then(data => console.log(data));
 //   .then(data => console.log(data[0].strTeam));
-=======
->>>>>>> 0cebc854bf01233c6e50d513ab55fc7dfcac6db7
-=======
 // Autocomplete widget
 
 function setAutoComplete(){
   $(function () {
-    teamNames = teamList;*/
-    [
-      'Bootstrap',
-      'C',
-      'C++',
-      'CSS',
-      'Express.js',
-      'Git',
-      'HTML',
-      'Java',
-      'JavaScript',
-      'jQuery',
-      'JSON',
-      'MySQL',
-      'Node.js',
-      'NoSQL',
-      'PHP',
-      'Python',
-      'React',
-      'Ruby',
-    ];*/
+    teamNames = teamList;
+    
    $('#nbaTeam').autocomplete({
       source: teamNames,
     });
