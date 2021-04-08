@@ -94,8 +94,12 @@ teamListEl.on('click', function(event){
 function setAutoComplete(teamListNames){
   //$(function () {
    // teamNames = teamList;
-    
+   
     $('#nbaTeam').autocomplete({
+      source: teamListNames,
+    });
+
+    $('#team_input').autocomplete({
       source: teamListNames,
     });
   //});
