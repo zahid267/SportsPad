@@ -8,7 +8,26 @@ var playerInput = $('#player_input')
 var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=' + teamInput + '&p= ' + playerInput ;
 
 
-    var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=Atlanta_Hawks&p=Kris_Dunn';
+
+
+function getParams() {
+    var searchParamsArr = document.location.search.split('&');
+    var team = searchParamsArr[0].split('=').pop();
+    var player = searchParamsArr[1].split('=').pop();
+    getPlayers(team, player);
+  }
+
+
+
+
+    var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=Toronto_Raptors&p=Kyle_Lowry';
+
+    
+
+
+    function getPlayers(team, player) {   /// Not used on this page
+        var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t='+team+'&p='+player;
+        console.log(requestUrl);
 
     fetch(requestUrl)
         .then(function (response) {
@@ -17,6 +36,12 @@ var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=
         .then(function (data) {
             playerSt = data.player[0];
             console.log("playerSt: ", playerSt );
+
+            if(data.player == null){
+                alert("No data available for the given criteria.");
+                window.history.back();
+                return false;
+            }
 
 
             var playerBrith = playerSt.strBirthLocation
@@ -43,5 +68,5 @@ var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=
 
 
        
-
- 
+    }
+    getParams();
