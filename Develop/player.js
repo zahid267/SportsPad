@@ -1,51 +1,11 @@
 
-let playerSt = [];    var eventDB = [];
+let playerSt = [];    
 var teamId = "";
 var teamInput = $('#team_Input')
 var playerInput = $('#player_input')
 
   
-var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/lookup_all_teams.php?id=4387';
-
-fetch(requestUrl)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        teamDB = data;
-        console.log("teamDB: ", teamDB);
-        showTeams();
-    });
-
-    function showTeams() {
-        //console.log(data.teams[0].strTeam);
-        for (var i = 0; i < teamDB.teams.length; i++) {
-   
-            var teamName = (teamDB.teams[i].strTeam);
-            var teamid = teamDB.teams[i].idTeam;
-            
-    
-          teamList[i] = teamName;
-            teamNameEl = $('<li>');
-            teamNameEl.attr("data-index", i);
-            teamNameEl.attr("data-id", teamid);
-          
-    
-        }
-        teamNames = teamList;
-        setAutoComplete(teamList)
-    }
-
-
-    function setAutoComplete(teamListNames){
-        //$(function () {
-         // teamNames = teamList;
-          
-          $('#team_Input').autocomplete({
-            source: teamListNames,
-          });
-        }
-
+var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=' + teamInput + '&p= ' + playerInput ;
 
 
     var requestUrl = 'https://www.thesportsdb.com/api/v1/json/1/searchplayers.php?t=Atlanta_Hawks&p=Kris_Dunn';
