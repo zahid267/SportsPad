@@ -77,15 +77,15 @@ function showTeams() {
 
 function searchTeams() {
     // event.preventDefault();
-  const teamNameSearch = userInput.value
-  var teamIndex = "";
+  var teamNameSearch = userInput.value
+  var teamIndex = -1;
   for(var i = 0; i< teamList.length; i++){
     if(teamNameSearch.toLowerCase() === teamList[i].toLowerCase()){
       teamIndex = i;
       i = teamList.length+1;
     }
   }
-  if(teamIndex != ""){
+  if(teamIndex > -1){
     var teamRecord = teamDB.teams[teamIndex];
     var teamRec = JSON.stringify(teamRecord);
     sessionStorage.setItem("teamRecord", teamRec);

@@ -13,7 +13,7 @@ function getTeams() {   /// Not used on this page
         })
         .then(function (data) {
             teamDB = data;
-            console.log("teamDB: ", teamDB);
+            //console.log("teamDB: ", teamDB);
             getParams();
 
             //dispTeam();
@@ -51,7 +51,7 @@ function dispTeam() {
     teamId = teamDB.idTeam;
     var trec = teamDB; /// Individual team record
         var httPrefix = "https://";
-         console.log(trec);
+        // console.log(trec);
          /*strWebsite: "www.nba.com/nets" */
          //var logoEl =
           $('#logo').attr('src',trec.strTeamLogo)
@@ -120,6 +120,9 @@ function dispTeamEvents(eventDB){
         tdEl = $('<td>').text(erec.strEvent);
         trEl.append(tdEl);
         tdEl = $('<td>').text(erec.intHomeScore);
+        if(parseInt(erec.intHomeScore)+0 > parseInt(erec.intAwayScore)+0){
+            tdEl.attr('class','win');
+        }
         trEl.append(tdEl);
         tdEl = $('<td>').text(erec.intAwayScore);
         trEl.append(tdEl);

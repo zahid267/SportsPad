@@ -1,7 +1,11 @@
 body{
     background-color: rgb(220, 250, 240);
 }
-
+header {
+    margin-top: 0;
+    text-align: center;
+    padding-top: 0;
+}
 h1{
     color: white;
     text-align: center;
@@ -23,5 +27,7 @@ h5{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: black;
     color: white;
-
+}
+header .nav-wrapper{
+    margin-top: 0;
 }
