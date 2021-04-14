@@ -38,13 +38,13 @@ The user can then repeat his/her search for another team or player.
 
 The following image shows the web application's appearance and functionality:
 
-![The Sports pad app includes a search option for NBA teams, a page about a selected NBA team, and a page about an NBA player.](./images/Sports_pad_demo.gif)
+![The Sports pad app includes a search option for NBA teams, a page about a selected NBA team, and a page about an NBA player.](./images/Sports_Pad_Demo.gif)
 
 ## Review
 
-* The URL of the deployed application : https://zahid267.github.io/WeatherDashboard/
+* The URL of the deployed application :https://zahid267.github.io/SportsPad/
 
-* The URL of the GitHub repository : https://github.com/zahid267/WeatherDashboard
+* The URL of the GitHub repository : https://github.com/zahid267/SportsPad
 
 - - -
-*** Developed by Muhammad Zahid --- April 02, 2021
+*** Developed by Muhammad Zahid --- April 12, 2021
